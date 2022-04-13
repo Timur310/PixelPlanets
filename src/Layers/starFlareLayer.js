@@ -154,26 +154,27 @@ const fragmentShader = () => {
     `;
 }
 
-export function createStarFlareLayer(rotationSpeed = 0.05,stormWidth=0.2,stormDitherWidth=0.07) {
+export function createStarFlareLayer(rotationSpeed = 0.05, stormWidth = 0.2, stormDitherWidth = 0.07, color = null) {
 
-    const colorSchemeTexture = new TextureLoader().load("src/colorScheme/colorScheme2.png");
+    const palette = color ? `src/colorScheme/starPalette/${color}Palette.png` : "src/colorScheme/starPalette/orangePalette.png"
+    const colorSchemeTexture = new TextureLoader().load(palette);
     colorSchemeTexture.magFilter = NearestFilter
     colorSchemeTexture.minFilter = NearestFilter
 
     const planetGeometry = new PlaneGeometry(1.5, 1.5);
     const planetMaterial = new ShaderMaterial({
         uniforms: {
-            pixels: {value: 200.0},
-            colorramp: {value: colorSchemeTexture},
+            pixels: { value: 200.0 },
+            colorramp: { value: colorSchemeTexture },
             time_speed: { value: rotationSpeed },
             rotation: { value: Math.random() },
             seed: { value: flip() ? Math.random() * 10 : Math.random() * 100 },
             time: { value: 0.0 },
-            storm_width: {value: stormWidth},
-            storm_dither_width: {value: stormDitherWidth},
-            circle_amount: {value: 2.0},
-            circle_scale: {value: 1.0},
-            scale: {value: 1.0},
+            storm_width: { value: stormWidth },
+            storm_dither_width: { value: stormDitherWidth },
+            circle_amount: { value: 2.0 },
+            circle_scale: { value: 1.0 },
+            scale: { value: 1.0 },
         },
         vertexShader: vertexShader(),
         fragmentShader: fragmentShader(),

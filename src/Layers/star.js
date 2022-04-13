@@ -127,9 +127,10 @@ const fragmentShaderPlanet = () => {
     `;
 }
 
-export function createStar(lightPos = new Vector2(0.39, 0.7), lightIntensity = 0.1, rotationSpeed = 0.01, rotation = 0.0) {
+export function createStar(lightPos = new Vector2(0.39, 0.7), lightIntensity = 0.1, rotationSpeed = 0.01, rotation = 0.0, color=null) {
 
-    const colorSchemeTexture = new TextureLoader().load("src/colorScheme/colorScheme2.png");
+    const palette = color ? `src/colorScheme/starPalette/${color}Palette.png` : "src/colorScheme/starPalette/orangePalette.png"
+    const colorSchemeTexture = new TextureLoader().load(palette);
     colorSchemeTexture.magFilter = NearestFilter
     colorSchemeTexture.minFilter = NearestFilter
 

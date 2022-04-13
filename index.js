@@ -1,13 +1,11 @@
 import { GUI } from 'dat.gui';
-import { Vector2 } from 'three';
 import { Group } from 'three';
 import { settings } from './settings';
 import { createCamera } from './src/camera';
 import { createStars } from './src/Layers/stars';
-import { createIcePlanet } from './src/Planets/icePlanet';
-import { createSolarSystem } from './src/solarSystem';
-import { createClock, createGroup, createScene, createWebGlRenderer } from './src/Three';
+import { createClock, createScene, createWebGlRenderer } from './src/Three';
 import { generatePlanetByType } from './src/utils';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 function initScene() {
 
@@ -17,16 +15,15 @@ function initScene() {
     const clock = createClock();
     const camera = createCamera(75, aspect, 0.1, 100000);
 
-
     const planetGroup = new Group()
     // add starting planet
     planetGroup.add(generatePlanetByType(settings.planetOptions[0]));
     scene.add(planetGroup)
 
     // use dat.gui to play around
-    const gui = new GUI({name: "Pixel planets"})
-    gui.add(settings, 'planetTypes', settings.planetOptions ).onChange((v) => {
-        planetGroup.children.pop()
+    const gui = new GUI({ name: "Pixel planets" })
+    gui.add(settings, 'planetTypes', settings.planetOptions).onChange((v) => {
+        planetGroup.children.
         planetGroup.add(generatePlanetByType(v));
     });
     gui.add(settings, "seed").onChange(() => {
@@ -34,9 +31,8 @@ function initScene() {
             planet.children.forEach(layer => {
                 layer.material.uniforms["seed"].value = settings.seedValue
                 // for asteroids
-                if(layer.material.uniforms["size"])
-                {
-                    layer.material.uniforms["size"].value = Math.random()*10
+                if (layer.material.uniforms["size"]) {
+                    layer.material.uniforms["size"].value = Math.random() * 10
                 }
             });
         });
@@ -48,6 +44,8 @@ function initScene() {
 
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
+
+    const controls = new OrbitControls(camera, renderer.domElement)
 
     // // prepare background layer
     // const backgroundLayerDust = createDustLayer();
@@ -61,18 +59,19 @@ function initScene() {
 
     document.getElementById("root").appendChild(renderer.domElement);
     camera.position.z = 1;
-    
+
     function animate() {
         requestAnimationFrame(animate);
-
         // animate planets
         planetGroup.children.forEach(planet => {
+            planet.lookAt(camera.position)
             planet.children.forEach(layer => {
                 layer.material.uniforms["time"].value = clock.getElapsedTime();
             });
         });
 
         //update camera
+
         camera.updateProjectionMatrix();
 
         // animate space

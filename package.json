@@ -4,15 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild index.js --minify  --bundle --outfile=out.js",
+    "build": "esbuild OOPtest.js --minify  --bundle --outfile=out.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dat.gui": "^0.7.9",
     "esbuild": "^0.14.31",
+    "get-pixels": "^3.3.3",
     "three": "^0.139.2"
   }
 }
