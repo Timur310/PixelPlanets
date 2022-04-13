@@ -1,7 +1,7 @@
+import { Group, Vector4 } from "three";
 import { createStar } from "../Layers/star";
-import { createStarFlareLayer } from "../Layers/starFlareLayer";
 import { createStarBlobLayer } from "../Layers/starBlobLayer";
-import { Group } from "three";
+import { createStarFlareLayer } from "../Layers/starFlareLayer";
 
 export class StarPlanet {
 
@@ -21,7 +21,7 @@ export class StarPlanet {
             case "blue":
                 base = createStar(undefined, undefined, undefined, undefined, "blue");
                 flare = createStarFlareLayer(undefined, undefined, undefined, "blue")
-                blob = createStarBlobLayer()
+                blob = createStarBlobLayer(undefined,new Vector4(223/255,246/255,255/255,1))
                 
                 flare.position.z = 0.01
                 flare.scale.set(1.2,1.2)
@@ -38,7 +38,7 @@ export class StarPlanet {
             case "white":
                 base = createStar(undefined, undefined, undefined, undefined, "white");
                 flare = createStarFlareLayer(undefined, undefined, undefined, "white")
-                blob = createStarBlobLayer()
+                blob = createStarBlobLayer(undefined,new Vector4(223/255,246/255,255/255,1))
 
                 flare.position.z = 0.01
                 flare.scale.set(1.2,1.2)

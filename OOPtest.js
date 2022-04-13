@@ -17,7 +17,7 @@ function init() {
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
 
-    const star = new StarPlanet("orange")
+    const star = new StarPlanet("red")
     scene.add(star.getStar())
 
     document.getElementById("root").appendChild(renderer.domElement);

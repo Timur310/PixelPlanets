@@ -124,9 +124,9 @@ const fragmentShader = () => {
     `;
 }
 
-export function createStarBlobLayer(rotationSpeed = 0.1) {
+export function createStarBlobLayer(rotationSpeed = 0.1, blobColor=null) {
 
-    const color = new Vector4(255/255, 165/255, 0/255, 1)
+    const color = blobColor ? blobColor : new Vector4(255/255, 165/255, 0/255, 1)
 
     const planetGeometry = new PlaneGeometry(1.3, 1.3);
     const planetMaterial = new ShaderMaterial({

@@ -27,9 +27,9 @@ const fragmentShaderPlanet = () => {
         bool should_dither = true;
 
         uniform float seed;
-        float size = 10.0;
-        int OCTAVES = 4;
-        float TILES = 1.0;
+        float size = 15.0;
+        int OCTAVES = 5;
+        float TILES = 2.0;
 
 
         float rand(vec2 co) {
