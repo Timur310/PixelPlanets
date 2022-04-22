@@ -5,7 +5,6 @@ import { createCamera } from './src/camera';
 import { createStars } from './src/Layers/stars';
 import { createClock, createScene, createWebGlRenderer } from './src/Three';
 import { generatePlanetByType } from './src/utils';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 function initScene() {
 
@@ -23,7 +22,7 @@ function initScene() {
     // use dat.gui to play around
     const gui = new GUI({ name: "Pixel planets" })
     gui.add(settings, 'planetTypes', settings.planetOptions).onChange((v) => {
-        planetGroup.children.
+        planetGroup.children.pop().remove()
         planetGroup.add(generatePlanetByType(v));
     });
     gui.add(settings, "seed").onChange(() => {
@@ -44,8 +43,6 @@ function initScene() {
 
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
-
-    const controls = new OrbitControls(camera, renderer.domElement)
 
     // // prepare background layer
     // const backgroundLayerDust = createDustLayer();
