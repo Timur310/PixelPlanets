@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild OOPtest.js --minify  --bundle --outfile=out.js",
+    "build": "esbuild index.js --minify  --bundle --outfile=out.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
