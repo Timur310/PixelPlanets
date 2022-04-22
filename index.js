@@ -59,9 +59,9 @@ function initScene() {
 
     function animate() {
         requestAnimationFrame(animate);
+
         // animate planets
         planetGroup.children.forEach(planet => {
-            planet.lookAt(camera.position)
             planet.children.forEach(layer => {
                 layer.material.uniforms["time"].value = clock.getElapsedTime();
             });
