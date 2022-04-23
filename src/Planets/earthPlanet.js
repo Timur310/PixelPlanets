@@ -1,8 +1,8 @@
 import { Vector4 } from "three";
 import { Group } from "three"
+import { createAtmosphereLayer } from "../Layers/atmosphereLayer";
 import { createBasePlanet } from "../Layers/basePlanet";
 import { createCloudLayer } from "../Layers/cloudLayer";
-import { createLakeLayer } from "../Layers/lakeLayer";
 import { createlandMassLayer } from "../Layers/landMass";
 
 export const createEarthPlanet = () => {
@@ -16,7 +16,8 @@ export const createEarthPlanet = () => {
     const basePlanet = createBasePlanet(undefined,undefined,colors)
     const landmass = createlandMassLayer(undefined,undefined,undefined,undefined,undefined,0.5);
     const clouds = createCloudLayer()
+    const atmosphere = createAtmosphereLayer()
 
-    earth.add(basePlanet,landmass,clouds)
+    earth.add(basePlanet,landmass,clouds,atmosphere)
     return earth
 }

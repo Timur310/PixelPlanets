@@ -65,7 +65,10 @@ function initScene() {
         // animate planets
         planetGroup.children.forEach(planet => {
             planet.children.forEach(layer => {
-                layer.material.uniforms["time"].value = clock.getElapsedTime();
+                if(layer.material.uniforms["time"])
+                {
+                    layer.material.uniforms["time"].value = clock.getElapsedTime();
+                }
             });
         });
 
