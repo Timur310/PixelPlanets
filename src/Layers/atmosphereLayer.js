@@ -55,9 +55,9 @@ export const createAtmosphereLayer = () =>
     const atmopshereGeometry = new PlaneGeometry(1.02, 1.02);
     const atmopshereMaterial = new ShaderMaterial({
         uniforms: {
-            color: {value: new Vector4(173/255,216/255,230/255, 0.35)},
-            color2: {value: new Vector4(0/255,127/255,255/255,  0.45)},
-            color3: {value: new Vector4(0/255,0/255,128/255,    0.55)}
+            color: {value: new Vector4(173/255,216/255,230/255, 0.25)},
+            color2: {value: new Vector4(0/255,127/255,255/255,  0.35)},
+            color3: {value: new Vector4(0/255,0/255,128/255,    0.45)}
         },
         vertexShader: vertexShader(),
         fragmentShader: fragmentShader(),
