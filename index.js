@@ -2,7 +2,9 @@ import { GUI } from 'dat.gui';
 import { Group } from 'three';
 import { settings } from './settings';
 import { createCamera } from './src/camera';
+import { createlandMassLayer } from './src/Layers/landMass';
 import { createStars } from './src/Layers/stars';
+import { createEarthPlanet } from './src/Planets/earthPlanet';
 import { createClock, createScene, createWebGlRenderer } from './src/Three';
 import { generatePlanetByType } from './src/utils';
 

@@ -1,5 +1,6 @@
 import { createAsteroid } from "./Planets/asteroid";
 import { createDryPlanet } from "./Planets/DryPlanet";
+import { createEarthPlanet } from "./Planets/earthPlanet";
 import { createGasGiant } from "./Planets/gasGiant";
 import { createGasGiantRing } from "./Planets/gasGiantRing";
 import { createIcePlanet } from "./Planets/icePlanet";
@@ -44,5 +45,7 @@ export function generatePlanetByType(type) {
             return createLavaPlanet()
         case "Dry Planet":
             return createDryPlanet()
+        case "Earth Planet":
+            return createEarthPlanet()
     }
 }

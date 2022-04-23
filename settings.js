@@ -11,7 +11,8 @@ export const settings = {
         "Asteroid",
         "Star",
         "Lava Planet",
-        "Dry Planet"
+        "Dry Planet",
+        "Earth Planet"
     ],
     seed: () => {
         settings.seedValue = flip() ? Math.random() * 10 : Math.random() * 100 
