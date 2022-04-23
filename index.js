@@ -30,7 +30,10 @@ function initScene() {
     gui.add(settings, "seed").onChange(() => {
         planetGroup.children.forEach(planet => {
             planet.children.forEach(layer => {
-                layer.material.uniforms["seed"].value = settings.seedValue
+                if(layer.material.uniforms["seed"])
+                {
+                    layer.material.uniforms["seed"].value = settings.seedValue
+                }
                 // for asteroids
                 if (layer.material.uniforms["size"]) {
                     layer.material.uniforms["size"].value = Math.random() * 10

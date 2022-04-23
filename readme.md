@@ -16,10 +16,15 @@ Use esbuild to bundle index.js, modify package.json for bundle name or other opt
 <img src="https://github.com/Timur310/PixelPlanets/blob/master/Images/7.png?raw=true" width=300></img>
 <img src="https://github.com/Timur310/PixelPlanets/blob/master/Images/8.png?raw=true" width=300></img>
 
+## Additional features
+    + Atmopshere Layer
+    + Space Background Generator also originally created by deepfold 
+
 ## still in progress
     + Galaxy and blackhole still missing
     + Maybe more planet layer?
     + Object-oriented classes for procedural planets
     + Solar system with gravitational attraction for fancy showcase
 
-[Original project](https://deep-fold.itch.io/pixel-planet-generator)
+[Pixel Planet Generator](https://deep-fold.itch.io/pixel-planet-generator)
+[Pixel Space Background Generator](https://github.com/Deep-Fold/PixelSpace)
