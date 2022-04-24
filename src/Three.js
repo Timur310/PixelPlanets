@@ -1,6 +1,4 @@
-import { Vector2 } from "three";
-import { Group } from "three";
-import { Clock, Scene, WebGLRenderer } from "three";
+import {Clock, Group, Scene, WebGLRenderer} from "three";
 
 export function createScene() {
     return new Scene();

@@ -1,8 +1,8 @@
 import { Vector4 } from "three";
-import { createBasePlanet } from "../Layers/basePlanet";
-import { createCraterLayer } from "../Layers/craterLayer";
-import { createRiverLayer } from "../Layers/riversLayer";
-import { createGroup } from "../Three";
+import { createBasePlanet } from "../Layers/basePlanet.js";
+import { createCraterLayer } from "../Layers/craterLayer.js";
+import { createRiverLayer } from "../Layers/riversLayer.js";
+import { createGroup } from "../Three.js";
 
 export const createLavaPlanet = () => {
     const colorPaletteBase = [

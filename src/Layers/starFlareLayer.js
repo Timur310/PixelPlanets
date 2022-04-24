@@ -1,7 +1,7 @@
 import { TextureLoader } from "three";
 import { NearestFilter } from "three";
 import { Mesh, PlaneGeometry, ShaderMaterial, Vector2, Vector4 } from "three";
-import { flip } from "../utils";
+import { flip } from "../utils.js";
 
 const vertexShader = () => {
     return `

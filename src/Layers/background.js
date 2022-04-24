@@ -1,5 +1,5 @@
 import { Mesh, NearestFilter, PlaneGeometry, ShaderMaterial, TextureLoader } from "three";
-import { flip } from "../utils";
+import { flip } from "../utils.js";
 
 const fragmentShaderDust = () => {
     return `

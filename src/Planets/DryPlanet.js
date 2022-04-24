@@ -1,6 +1,6 @@
 import { Group } from "three";
 import { Mesh, NearestFilter, PlaneGeometry, ShaderMaterial, TextureLoader, Vector2 } from "three";
-import { flip } from "../utils";
+import { flip } from "../utils.js";
 
 const vertexShader = () => {
     return `

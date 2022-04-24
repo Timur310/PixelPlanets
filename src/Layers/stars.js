@@ -3,7 +3,7 @@ import { Sprite } from "three";
 import { SpriteMaterial } from "three";
 import { NearestFilter } from "three";
 import { TextureLoader } from "three";
-import { flip, rand, randomPointOnSphere } from "../utils";
+import { flip, rand, randomPointOnSphere } from "../utils.js";
 
 export function createStars(count) {
     const starGroup = new Group()

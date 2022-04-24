@@ -1,6 +1,6 @@
 import { Group } from "three"
-import { createBasePlanet } from "../Layers/basePlanet"
-import { createCraterLayer } from "../Layers/craterLayer"
+import { createBasePlanet } from "../Layers/basePlanet.js"
+import { createCraterLayer } from "../Layers/craterLayer.js"
 
 export const createNoAtmospherePlanet = () => {
     const noAtmospherePlanet = new Group()

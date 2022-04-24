@@ -1,6 +1,6 @@
 import { Group } from "three";
-import { createDenseGasPlanet } from "../Layers/denseGasLayer";
-import { createRingLayer } from "../Layers/ringLayer";
+import { createDenseGasPlanet } from "../Layers/denseGasLayer.js";
+import { createRingLayer } from "../Layers/ringLayer.js";
 
 export const createGasGiantRing = () =>
 {
