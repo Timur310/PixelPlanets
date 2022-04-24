@@ -66,7 +66,7 @@ function extractPixels(context) {
 }
 
 function toP3({width, height, pixels}) {
-    const canva = new Canvas(256, 256);
+    const canva = new Canvas(width, height);
     const context = canva.getContext('2d');
 
     const bytesPerPixel = pixels.length / width / height;
