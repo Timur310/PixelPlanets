@@ -1,7 +1,7 @@
 import { TextureLoader } from "three";
 import { NearestFilter } from "three";
 import { Mesh, PlaneGeometry, ShaderMaterial, Vector2, Vector4 } from "three";
-import { flip } from "../utils";
+import { flip } from "../utils.js";
 
 const vertexShader = () => {
     return `
@@ -37,7 +37,7 @@ const fragmentShader = () => {
 
 
         float rand(vec2 co){
-            co = mod(co, vec2(1.0,1.0)*round(size));
+            co = mod(co, vec2(1.0,1.0)*floor(size+0.5));
             return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 15.5453 * seed);
         }
         

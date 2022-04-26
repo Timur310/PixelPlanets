@@ -1,6 +1,6 @@
 import { Group } from "three";
-import { createBaseGasPlanet } from "../Layers/baseGasPlanet";
-import { createGasPLayer } from "../Layers/gasLayer";
+import { createBaseGasPlanet } from "../Layers/baseGasPlanet.js";
+import { createGasPLayer } from "../Layers/gasLayer.js";
 
 export const createGasGiant = () =>
 {
