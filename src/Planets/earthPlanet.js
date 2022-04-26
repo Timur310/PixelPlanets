@@ -1,9 +1,9 @@
 import { Vector4 } from "three";
 import { Group } from "three"
-import { createAtmosphereLayer } from "../Layers/atmosphereLayer";
-import { createBasePlanet } from "../Layers/basePlanet";
-import { createCloudLayer } from "../Layers/cloudLayer";
-import { createlandMassLayer } from "../Layers/landMass";
+import { createAtmosphereLayer } from "../Layers/atmosphereLayer.js";
+import { createBasePlanet } from "../Layers/basePlanet.js";
+import { createCloudLayer } from "../Layers/cloudLayer.js";
+import { createlandMassLayer } from "../Layers/landMass.js";
 
 export const createEarthPlanet = () => {
     const earth = new Group();

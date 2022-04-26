@@ -26,5 +26,5 @@ Use esbuild to bundle index.js, modify package.json for bundle name or other opt
     + Object-oriented classes for procedural planets
     + Solar system with gravitational attraction for fancy showcase
 
-[Pixel Planet Generator](https://deep-fold.itch.io/pixel-planet-generator)
-[Pixel Space Background Generator](https://github.com/Deep-Fold/PixelSpace)
+[Original Pixel Planet Generator](https://deep-fold.itch.io/pixel-planet-generator)<br>
+[Original Pixel Space Background Generator](https://github.com/Deep-Fold/PixelSpace)

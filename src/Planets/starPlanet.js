@@ -1,7 +1,7 @@
 import { Group } from "three"
-import { createStar } from "../Layers/star"
-import { createStarBlobLayer } from "../Layers/starBlobLayer"
-import { createStarFlareLayer } from "../Layers/starFlareLayer"
+import { createStar } from "../Layers/star.js"
+import { createStarBlobLayer } from "../Layers/starBlobLayer.js"
+import { createStarFlareLayer } from "../Layers/starFlareLayer.js"
 
 export const createStarPlanet = () => {
     const StarPlanet = new Group()

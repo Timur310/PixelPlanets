@@ -1,12 +1,12 @@
-import { createAsteroid } from "./Planets/asteroid";
-import { createDryPlanet } from "./Planets/DryPlanet";
-import { createEarthPlanet } from "./Planets/earthPlanet";
-import { createGasGiant } from "./Planets/gasGiant";
-import { createGasGiantRing } from "./Planets/gasGiantRing";
-import { createIcePlanet } from "./Planets/icePlanet";
-import { createLavaPlanet } from "./Planets/lavaPlanet";
-import { createNoAtmospherePlanet } from "./Planets/noAtmosphere";
-import { createStarPlanet } from "./Planets/starPlanet";
+import { createAsteroid } from "./Planets/asteroid.js";
+import { createDryPlanet } from "./Planets/DryPlanet.js";
+import { createEarthPlanet } from "./Planets/earthPlanet.js";
+import { createGasGiant } from "./Planets/gasGiant.js";
+import { createGasGiantRing } from "./Planets/gasGiantRing.js";
+import { createIcePlanet } from "./Planets/icePlanet.js";
+import { createLavaPlanet } from "./Planets/lavaPlanet.js";
+import { createNoAtmospherePlanet } from "./Planets/noAtmosphere.js";
+import { createStarPlanet } from "./Planets/starPlanet.js";
 
 export function rand(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
