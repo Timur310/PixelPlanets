@@ -17,6 +17,7 @@ Use esbuild to bundle index.js, modify package.json for bundle name or other opt
     <img src="https://github.com/Timur310/PixelPlanets/blob/master/Images/8.png?raw=true" width=300></img>
     <img src="https://github.com/Timur310/PixelPlanets/blob/master/Images/9.png?raw=true" width=300></img>
 </p>
+
 ## Additional features
     + Atmopshere Layer
     + Space Background Generator also originally created by deepfold 
