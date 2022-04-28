@@ -91,7 +91,7 @@ const fragmentShaderPlanet = () => {
             // get a noise value with light distance added
             // this creates a moving dynamic shape
             float fbm1 = fbm(uv);
-            d_light += fbm(uv*size+fbm1+vec2(time*time_speed, 0.0))*lightIntensity;
+            d_light += fbm(uv*size+fbm1+vec2(time*0.1+time_speed, 0.0))*lightIntensity;
             
             // size of edge in which colors should be dithered
             float dither_border = (1.0/pixels)*dither_size;

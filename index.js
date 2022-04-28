@@ -1,10 +1,8 @@
 import { GUI } from 'dat.gui';
-import { Group } from 'three';
+import { Group, Vector2 } from 'three';
 import { settings } from './settings';
 import { createCamera } from './src/camera';
-import { createlandMassLayer } from './src/Layers/landMass';
 import { createStars } from './src/Layers/stars';
-import { createEarthPlanet } from './src/Planets/earthPlanet';
 import { createClock, createScene, createWebGlRenderer } from './src/Three';
 import { generatePlanetByType } from './src/utils';
 
@@ -15,6 +13,21 @@ function initScene() {
     const scene = createScene();
     const clock = createClock();
     const camera = createCamera(75, aspect, 0.1, 100000);
+    
+    let totalX = 0;
+    let moveX = 0;
+    let holding = false
+    container.addEventListener("mousedown", (e) =>{
+        holding = true;
+    },false);
+    container.addEventListener("mouseup", (e) =>{
+        holding = false;
+    },false);
+    container.addEventListener('mousemove', (e) => {
+        e.preventDefault();
+        totalX += Math.abs(e.movementX);
+        moveX += e.movementX;
+    }, false);
 
     const planetGroup = new Group()
     // add starting planet
@@ -71,6 +84,7 @@ function initScene() {
                 if(layer.material.uniforms["time"])
                 {
                     layer.material.uniforms["time"].value = clock.getElapsedTime();
+                    layer.material.uniforms["time_speed"].value += holding ? moveX*0.01 : 0;
                 }
             });
         });
@@ -85,6 +99,7 @@ function initScene() {
         starGroup.rotateZ(skySpeed);
 
         renderer.render(scene, camera);
+        moveX = totalX = 0;
     };
 
     animate();

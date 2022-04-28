@@ -49,7 +49,7 @@ const fragmentShaderCrater = () => {
         float crater(vec2 uv) {
             float c = 1.0;
             for (int i = 0; i < 2; i++) {
-                c *= circleNoise((uv * size) + (float(i+1)+10.) + vec2(time*time_speed,0.0));
+                c *= circleNoise((uv * size) + (float(i+1)+10.) + vec2((time*0.1)+time_speed,0.0));
             }
             return 1.0 - c;
         }
