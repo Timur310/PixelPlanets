@@ -77,8 +77,13 @@ export class AtmopshereLayer {
     }
 
     // update uniforms here
-    public update(): void {
+    public update(dt: number): void {
+        // currently unused
+    }
 
+    public dispose(): void {
+        this._geometry.dispose()
+        this._material.dispose()
     }
 
     get mesh(): Mesh {
