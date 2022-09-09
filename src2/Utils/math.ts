@@ -21,6 +21,10 @@ export const flip = (): boolean => {
     return Math.random() > 0.5
 }
 
+/**
+ * 
+ * @returns a random point on a sphere with radius of 2
+ */
 export const randomPointOnSphere = (): Ipoint3D => {
     const u = Math.random();
     const v = Math.random();
