@@ -117,26 +117,3 @@ export class AtmopshereLayer {
         this._col3 = col;
     }
 }
-
-
-export const createAtmosphereLayer = (color?: Vector3, color2?: Vector3, color3?: Vector3): Mesh => {
-    const col = color ? new Vector4(color.x, color.y, color.z, 0.25) : new Vector4(173 / 255, 216 / 255, 230 / 255, 0.25);
-    const col2 = color2 ? new Vector4(color2.x, color2.y, color2.z, 0.35) : new Vector4(0 / 255, 127 / 255, 255 / 255, 0.35);
-    const col3 = color3 ? new Vector4(color3.x, color3.y, color3.z, 0.45) : new Vector4(0 / 255, 0 / 255, 128 / 255, 0.45);
-
-    const atmopshereGeometry = new PlaneGeometry(1.02, 1.02);
-    const atmopshereMaterial = new ShaderMaterial({
-        uniforms: {
-            color: { value: col },
-            color2: { value: col2 },
-            color3: { value: col3 }
-        },
-        vertexShader: vertexShader(),
-        fragmentShader: fragmentShader(),
-        transparent: true,
-    });
-
-    const atmosphereLayer = new Mesh(atmopshereGeometry, atmopshereMaterial)
-
-    return atmosphereLayer;
-} 
