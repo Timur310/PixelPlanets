@@ -1,4 +1,5 @@
 import { BufferGeometry, Mesh, PlaneGeometry, ShaderMaterial, Vector2, Vector4 } from "three";
+import { mulberry32 } from "../../Utils/math";
 import fragment from "./frag.frag"
 import vertex from "./vert.vert"
 
@@ -31,12 +32,30 @@ export class GasPlanetBase {
                 time_speed: { value: this._rotationSpeed },
                 rotation: { value: this._rotation },
                 light_origin: { value: this._lightPos },
-                seed: { value: 1.0 },
+                seed: { value: mulberry32(Math.random()) },
                 time: { value: 0.0 }
             },
             vertexShader: fragment,
             fragmentShader: vertex,
             transparent: true,
         });
+        this._mesh = new Mesh(this._geometry, this._material);
+    }
+
+    public dispose(): void {
+        this._geometry.dispose()
+        this._material.dispose()
+    }
+
+    get mesh(): Mesh {
+        return this._mesh
+    }
+
+    get geometry(): BufferGeometry {
+        return this._geometry
+    }
+
+    get material(): ShaderMaterial {
+        return this._material
     }
 }
