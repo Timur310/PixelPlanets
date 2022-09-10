@@ -1,5 +1,5 @@
 varying vec3 vUv;
-float pixels = 100.0;
+uniform float pixels;
 uniform float cloud_cover;
 uniform vec2 light_origin;
 uniform float time_speed;

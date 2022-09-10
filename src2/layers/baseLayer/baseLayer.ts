@@ -15,19 +15,21 @@ export class BaseLayer {
     private _material: ShaderMaterial;
     private _mesh: Mesh;
 
-    constructor(color?: Vector4, color2?: Vector4, color3?: Vector4, lightPos?: Vector2, lightIntensity?: number) {
+    constructor() {
+        this._color = new Vector4(155 / 255, 158 / 255, 184 / 255, 1);
+        this._color2 = new Vector4(71 / 255, 97 / 255, 124 / 255, 1);
+        this._color3 = new Vector4(53 / 255, 57 / 255, 85 / 255, 1);
+        this._lightIntensity = 0.1;
+        this._lightPos = new Vector2(0.39, 0.7);
         this._geometry = new PlaneGeometry(1, 1);
-        this._color = color ? color : new Vector4(155 / 255, 158 / 255, 184 / 255, 1);
-        this._color2 = color2 ? color2 : new Vector4(71 / 255, 97 / 255, 124 / 255, 1);
-        this._color3 = color3 ? color3 : new Vector4(53 / 255, 57 / 255, 85 / 255, 1);
         this._material = new ShaderMaterial({
             uniforms: {
                 pixels: { value: 100.0 },
                 color1: { value: this._color },
                 color2: { value: this._color2 },
                 color3: { value: this._color3 },
-                lightIntensity: { value: lightIntensity ? lightIntensity : 0.1 },
-                light_origin: { value: lightPos ? lightPos : new Vector2(0.39, 0.7) },
+                lightIntensity: { value: this._lightIntensity },
+                light_origin: { value: this._lightPos },
                 time_speed: { value: 0.1 },
                 rotation: { value: 0.0 },
                 seed: { value: mulberry32(Math.random()) },

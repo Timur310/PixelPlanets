@@ -1,9 +1,4 @@
-export interface Ipoint3D {
-    x: number;
-    y: number;
-    z: number
-}
-
+import { Vector3 } from "three"
 
 /**
  * @param min lower bound of the random numer
@@ -23,21 +18,21 @@ export const flip = (): boolean => {
 
 /**
  * 
- * @returns a random point on a sphere with radius of 2
+ * @param radius the radius of the sphere
+ * @returns object of x, y, z component of the random point
  */
-export const randomPointOnSphere = (): Ipoint3D => {
+export const randomPointOnSphere = (radius: number): Vector3 => {
     const u = Math.random();
     const v = Math.random();
 
     const theta = 2 * Math.PI * u;
     const phi = Math.acos(2 * v - 1);
 
-    const point3D: Ipoint3D = {
-        x: 0 + (1 * Math.sin(phi) * Math.cos(theta)),
-        y: 0 + (1 * Math.sin(phi) * Math.sin(theta)),
-        z: 0 + (1 * Math.cos(phi))
-    }
-    return point3D;
+    const x = radius * Math.sin(phi) * Math.cos(theta),
+    const y = radius * Math.sin(phi) * Math.sin(theta),
+    const z = radius * Math.cos(phi)
+
+    return new Vector3(x,y,z);
 }
 
 /**
