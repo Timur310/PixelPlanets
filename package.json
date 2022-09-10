@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild index.js --minify  --bundle --outfile=out.js",
+    "build": "node build.js",
     "generate:server-side": "node server-side-example.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,7 @@
     "canvas": "^2.9.1",
     "dat.gui": "^0.7.9",
     "esbuild": "^0.14.31",
+    "esbuild-plugin-glsl": "^1.1.0",
     "get-pixels": "^3.3.3",
     "gl": "^5.0.0",
     "three": "^0.139.2"
