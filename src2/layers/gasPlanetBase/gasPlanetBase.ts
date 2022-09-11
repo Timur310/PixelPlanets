@@ -10,10 +10,12 @@ export class GasPlanetBase {
     private _cloudCurve: number;
     private _rotationSpeed: number;
     private _rotation: number;
+
     private _color: Vector4;
     private _color2: Vector4;
     private _color3: Vector4;
     private _color4: Vector4;
+    
     private _geometry: BufferGeometry;
     private _material: ShaderMaterial;
     private _mesh: Mesh;

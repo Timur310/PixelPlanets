@@ -6,11 +6,14 @@ import vertex from "./vert.vert"
 export class BaseLayer {
     private _lightPos: Vector2;
     private _lightIntensity: number;
+
     private _color: Vector4;
     private _color2: Vector4;
     private _color3: Vector4;
+
     private _rotationSpeed: number;
     private _rotation: number;
+    
     private _geometry: BufferGeometry;
     private _material: ShaderMaterial;
     private _mesh: Mesh;
