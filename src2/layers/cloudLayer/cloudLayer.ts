@@ -36,7 +36,7 @@ export class CloudLayer {
             uniforms: {
                 light_origin: { value: this._lightPos },
                 pixels: { value: 100.0 },
-                seed: { value: mulberry32(Math.random()) },
+                seed: { value: mulberry32() },
                 time_speed: { value: this._rotationSpeed },
                 base_color: { value: this._color },
                 outline_color: { value: this._color2 },

@@ -46,7 +46,7 @@ export class GasPlanetBase {
                 time_speed: { value: this._rotationSpeed },
                 rotation: { value: this._rotation },
                 light_origin: { value: this._lightPos },
-                seed: { value: mulberry32(Math.random()) },
+                seed: { value: mulberry32() },
                 time: { value: 0.0 },
                 pixels: { value: 100.0 }
             },

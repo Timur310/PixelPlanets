@@ -35,7 +35,7 @@ export class BaseLayer {
                 light_origin: { value: this._lightPos },
                 time_speed: { value: 0.1 },
                 rotation: { value: 0.0 },
-                seed: { value: mulberry32(Math.random()) },
+                seed: { value: mulberry32() },
                 time: { value: 0.0 }
             },
             vertexShader: vertex,
