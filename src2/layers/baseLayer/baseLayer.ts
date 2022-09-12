@@ -48,6 +48,10 @@ export class BaseLayer {
     public dispose(): void {
         this._geometry.dispose()
         this._material.dispose()
+        if(this._mesh.parent)
+        {
+            this._mesh.parent.remove(this._mesh)
+        }
     }
 
     get mesh(): Mesh {
