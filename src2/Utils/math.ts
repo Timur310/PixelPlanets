@@ -28,8 +28,8 @@ export const randomPointOnSphere = (radius: number): Vector3 => {
     const theta = 2 * Math.PI * u;
     const phi = Math.acos(2 * v - 1);
 
-    const x = radius * Math.sin(phi) * Math.cos(theta),
-    const y = radius * Math.sin(phi) * Math.sin(theta),
+    const x = radius * Math.sin(phi) * Math.cos(theta)
+    const y = radius * Math.sin(phi) * Math.sin(theta)
     const z = radius * Math.cos(phi)
 
     return new Vector3(x, y, z);

@@ -48,7 +48,58 @@ export class CraterLayer {
         if(this._mesh.parent)
         {
             this._mesh.parent.remove(this._mesh)
-        }
+		}
     }
 
+	get lightPos(): Vector {
+		return this._lightPos;
+	}
+	
+	set lightPos(value: Vector) {
+		this._lightPos = value;
+	}
+
+	get color(): Vector4 {
+		return this._color;
+	}
+
+	set color(value: Vector4) {
+		this._color = value;
+	}
+
+	get color2(): Vector4 {
+		return this._color2;
+	}
+	
+	set color2(value: Vector4) {
+		this._color2 = value;
+	}
+
+	get rotationSpeed(): number {
+		return this._rotationSpeed;
+	}
+
+	set rotationSpeed(value: number) {
+		this._rotationSpeed = value;
+	}
+
+	get rotation(): number {
+		return this._rotation;
+	}
+
+	set rotation(value: number) {
+		this._rotation = value;
+	}
+
+	get material(): ShaderMaterial {
+		return this._material
+	}
+
+	get mesh(): Mesh {
+		return this._mesh
+	}
+
+	get geometry(): BufferGeometry {
+		return this._geometry
+	}
 }
