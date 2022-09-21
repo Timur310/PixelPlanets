@@ -9,6 +9,6 @@ build({
     legalComments: "none",
     logLevel: "info",
     plugins: [glsl({
-		minify: true
-	})],
+		  minify: true
+	  })],
 })
