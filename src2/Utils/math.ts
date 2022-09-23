@@ -1,25 +1,27 @@
 import { Vector3 } from "three"
 
 /**
- * @param min lower bound of the random numer
- * @param max upper bound of the random number
- * @returns random number between the specified min and max bound
+ * Return a random number between min and max, inclusive.
+ * @param {number} min - The minimum number that can be returned
+ * @param {number} max - The maximum number that can be returned.
+ * @returns A random number between min and max
  */
 export const randBetween = (min: number, max: number): number => {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 /**
- * @returns true or false, based on a primitive coinflip simulation
+ * It returns a random boolean
+ * @returns A boolean value
  */
 export const flip = (): boolean => {
     return Math.random() > 0.5
 }
 
 /**
- * 
- * @param radius the radius of the sphere
- * @returns object of x, y, z component of the random point
+ * It generates a random point on the surface of a sphere with a given radius
+ * @param {number} radius - The radius of the sphere.
+ * @returns A random point on the surface of a sphere with a given radius.
  */
 export const randomPointOnSphere = (radius: number): Vector3 => {
     const u = Math.random();
@@ -36,12 +38,11 @@ export const randomPointOnSphere = (radius: number): Vector3 => {
 }
 
 /**
- * @returns PRNG number
+ * it has nothing to do with mulberry32 but earlier it was used
+ * too lazy to change the spelling for all layer
+ * It returns a random number between 0 and 1.
+ * @returns A random number between 0 and 1
  */
 export const mulberry32 = (): number => {
-    let seed = Math.random();
-    let t = seed += 0x6D2B79F5;
-    t = Math.imul(t ^ t >>> 15, t | 1);
-    t ^= t + Math.imul(t ^ t >>> 7, t | 61);
-    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    return Math.random() * (1000000.0 - -1000000.0) + -1000000.0;
 }

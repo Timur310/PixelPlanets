@@ -17,7 +17,6 @@ const vertexShader = () => {
 const fragmentShaderPlanet = () => {
     return `
         varying vec3 vUv;
-        uniform float lightIntensity;
         uniform float pixels;
         uniform float rotation;
         uniform vec2 light_origin;
@@ -155,7 +154,6 @@ export function createlandMassLayer(lightPos = new Vector2(0.39, 0.7), lightInte
             col2: { value: colorPalette[1] },
             col3: { value: colorPalette[2] },
             col4: { value: colorPalette[3] },
-            lightIntensity: { value: lightIntensity },
             light_origin: { value: lightPos },
             time_speed: { value: rotationSpeed },
             rotation: { value: rotation },
