@@ -14,9 +14,6 @@ export class BaseLayer {
     private _rotationSpeed: number;
     private _rotation: number;
     
-    private _geometry: BufferGeometry;
-    private _material: ShaderMaterial;
-    private _mesh: Mesh;
 
     constructor() {
         this._color = new Vector4(155 / 255, 158 / 255, 184 / 255, 1);
@@ -24,7 +21,6 @@ export class BaseLayer {
         this._color3 = new Vector4(53 / 255, 57 / 255, 85 / 255, 1);
         this._lightIntensity = 0.1;
         this._lightPos = new Vector2(0.39, 0.7);
-        this._geometry = new PlaneGeometry(1, 1);
         this._material = new ShaderMaterial({
             uniforms: {
                 pixels: { value: 100.0 },
