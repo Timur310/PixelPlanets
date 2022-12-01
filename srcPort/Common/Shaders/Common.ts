@@ -26,8 +26,7 @@ float random(vec2 v) { return floatConstruct(hash(floatBitsToUint(v))); }
 vec3 permute(vec3 x) { return mod(((x * 34.0) + 1.0) * x, 289.0); }
 
 float rand(vec2 coord) {
-  coord = mod(coord, vec2(1.0, 1.0) * floor(size + 0.5));
-  return fract(sin(dot(coord.xy, vec2(12.9898, 78.233))) * 15.5453 * seed);
+  return random(coord) * seed;
 }
 
 float noise(vec2 v) {

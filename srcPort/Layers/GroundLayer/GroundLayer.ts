@@ -13,7 +13,6 @@ export class GroundLayer extends BaseLayer
         super();
         const uniforms = 
         {
-            pixels: {value: 100.0},
             color1: { value: this._color},
             color2: { value: this._color2},
             color3: { value: this._color3},
