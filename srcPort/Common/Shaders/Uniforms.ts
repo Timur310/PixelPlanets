@@ -1,0 +1,9 @@
+export default `
+varying vec3 vUv;
+uniform float seed;
+uniform float time;
+uniform float lightIntensity;
+uniform float pixels;
+uniform float rotation;
+uniform vec2 light_origin;
+uniform float time_speed;`;
