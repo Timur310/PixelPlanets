@@ -1,5 +1,6 @@
 import * as THREE from "three"
 import { Clock, Vector2 } from "three";
+import { CraterLayer } from "./srcPort/Layers/CraterLayer/CraterLayer";
 import { GroundLayer } from "./srcPort/Layers/GroundLayer/GroundLayer";
 
 const init = () => {
@@ -12,7 +13,9 @@ const init = () => {
 	const renderer = new THREE.WebGLRenderer();
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	document.body.appendChild(renderer.domElement);
-	const layer = new GroundLayer()
+	const layer = new CraterLayer()
+	const layer2 = new GroundLayer()
+	scene.add(layer2)
 	scene.add(layer)
 	document.body.addEventListener('mousemove', (e) => {
 		const rect = e.target.getBoundingClientRect();
@@ -25,6 +28,8 @@ const init = () => {
 		requestAnimationFrame(animate);
 		layer.update(delta)
 		layer.lightOrigin = new Vector2(x, -y)
+		layer2.update(delta)
+		layer2.lightOrigin = new Vector2(x, -y)
 		renderer.render(scene, camera);
 
 	}

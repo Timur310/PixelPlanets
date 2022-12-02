@@ -1,5 +1,6 @@
 import { Vector4 } from "three";
 import { BaseLayer } from "../BaseLayer";
+import CraterShader from "./CraterSader"
 
 export class CraterLayer extends BaseLayer
 {
@@ -14,6 +15,6 @@ export class CraterLayer extends BaseLayer
             color1: { value: this._color },
             color2: { value: this._color2 },
         }
-        this.setShaderMaterial(uniforms,GroundShader);
+        this.setShaderMaterial(uniforms,CraterShader);
     }
 }

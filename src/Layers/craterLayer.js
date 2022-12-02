@@ -21,14 +21,14 @@ const fragmentShaderCrater = () => {
         uniform float rotation;
         uniform vec2 light_origin;
         uniform float time_speed;
+        uniform float seed;
+        uniform float time;
         float dither_size = 2.0;
         float light_border = 0.4;
         uniform vec4 color1;
         uniform vec4 color2;
         float size = 5.0;
         int OCTAVES = 20;
-        uniform float seed;
-        uniform float time;
         bool should_dither = true;
 
         float rand(vec2 coord) {

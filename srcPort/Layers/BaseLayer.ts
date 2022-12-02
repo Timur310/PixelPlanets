@@ -11,6 +11,7 @@ export class BaseLayer extends Mesh
     private _lightIntensity = 0.1;
     private _seed = randomFloat();
     private _time = 0.0;
+    private _size = Math.random() * 5;
     
     constructor(geometry: BufferGeometry = new PlaneGeometry(1,1), material: ShaderMaterial = new ShaderMaterial())
     {
@@ -37,7 +38,8 @@ export class BaseLayer extends Mesh
             "lightIntensity": {value: this._lightIntensity},
             "seed": {value: this._seed},
             "time": {value: this._time},
-            "rotation": {value: this._rotation}
+            "rotation": {value: this._rotation},
+            "size": {value: this._size}
         }
         const finalUniforms = UniformsUtils.merge([baseUniforms, uniforms]);
         this.material = new ShaderMaterial({
@@ -76,6 +78,7 @@ export class BaseLayer extends Mesh
             mat.uniforms.time_speed.value = this._time_speed;
             mat.uniforms.light_origin.value = this._light_origin;
             mat.uniforms.pixels.value = this._pixelResolution;
+            mat.uniforms.size.value = this._size;
         }
     }
 
@@ -122,5 +125,12 @@ export class BaseLayer extends Mesh
 
     public set pixelResolution(value: number) {
         this._pixelResolution = value;
+    }
+
+    public get size(): number {
+        return this._size;
+    }
+    public set size(value: number) {
+        this._size = value;
     }
 }
