@@ -7,4 +7,6 @@ uniform float pixels;
 uniform float size;
 uniform float rotation;
 uniform vec2 light_origin;
-uniform float time_speed;`;
+uniform float time_speed;
+uniform float dither_size;
+`;

@@ -23,5 +23,5 @@ function randomizeFloat(min: number, max: number): number {
 
 export function randomFloat(): number
 {
-    return parseFloat(randomizeFloat(-10000,10000).toString().substring(0,15));
+    return parseFloat(randomizeFloat(-100,100).toString().substring(0,15));
 }

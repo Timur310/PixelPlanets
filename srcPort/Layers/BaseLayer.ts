@@ -12,6 +12,7 @@ export class BaseLayer extends Mesh
     private _seed = randomFloat();
     private _time = 0.0;
     private _size = Math.random() * 5;
+    private _dither_size = 2.0;
     
     constructor(geometry: BufferGeometry = new PlaneGeometry(1,1), material: ShaderMaterial = new ShaderMaterial())
     {
@@ -39,7 +40,8 @@ export class BaseLayer extends Mesh
             "seed": {value: this._seed},
             "time": {value: this._time},
             "rotation": {value: this._rotation},
-            "size": {value: this._size}
+            "size": {value: this._size},
+            "dither_size": {value: this._dither_size}
         }
         const finalUniforms = UniformsUtils.merge([baseUniforms, uniforms]);
         this.material = new ShaderMaterial({
@@ -79,6 +81,7 @@ export class BaseLayer extends Mesh
             mat.uniforms.light_origin.value = this._light_origin;
             mat.uniforms.pixels.value = this._pixelResolution;
             mat.uniforms.size.value = this._size;
+            mat.uniforms.dither_size.value = this._dither_size;
         }
     }
 
@@ -132,5 +135,13 @@ export class BaseLayer extends Mesh
     }
     public set size(value: number) {
         this._size = value;
+    }
+
+    public get dither_size(): number {
+        return this._dither_size;
+    }
+
+    public set dither_size(value: number) {
+        this._dither_size = value;
     }
 }
