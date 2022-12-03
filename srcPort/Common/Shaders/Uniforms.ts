@@ -9,4 +9,6 @@ uniform float rotation;
 uniform vec2 light_origin;
 uniform float time_speed;
 uniform float dither_size;
+uniform int OCTAVES;
+uniform bool should_dither;
 `;

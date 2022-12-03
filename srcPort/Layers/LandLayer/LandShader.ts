@@ -2,6 +2,7 @@ import Uniforms from "../../Common/Shaders/Uniforms"
 import Common from "../../Common/Shaders/Common"
 
 export default `
+${Uniforms}
 float light_border_1 = 0.4;
 float light_border_2 = 0.6;
 uniform vec4 col1;
@@ -9,8 +10,6 @@ uniform vec4 col2;
 uniform vec4 col3;
 uniform vec4 col4;
 uniform float land_cutoff;
-int OCTAVES = 6;
-${Uniforms}
 
 ${Common}
 

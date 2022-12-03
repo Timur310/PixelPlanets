@@ -13,6 +13,8 @@ export class BaseLayer extends Mesh
     private _time = 0.0;
     private _size = Math.random() * 5;
     private _dither_size = 2.0;
+    private _octave = 10.0;
+    private _shouldDither = true;
     
     constructor(geometry: BufferGeometry = new PlaneGeometry(1,1), material: ShaderMaterial = new ShaderMaterial())
     {
@@ -41,7 +43,9 @@ export class BaseLayer extends Mesh
             "time": {value: this._time},
             "rotation": {value: this._rotation},
             "size": {value: this._size},
-            "dither_size": {value: this._dither_size}
+            "dither_size": {value: this._dither_size},
+            "should_dither": {value: this._shouldDither},
+            "OCTAVE": {value: this._octave}
         }
         const finalUniforms = UniformsUtils.merge([baseUniforms, uniforms]);
         this.material = new ShaderMaterial({
@@ -143,5 +147,20 @@ export class BaseLayer extends Mesh
 
     public set dither_size(value: number) {
         this._dither_size = value;
+    }
+
+    public get shouldDither(): boolean {
+        return this._shouldDither;
+    }
+
+    public set shouldDither(value: boolean) {
+        this._shouldDither = value;
+    }
+
+    public get octave(): number {
+        return this._octave;
+    }
+    public set octave(value: number) {
+        this._octave = value;
     }
 }

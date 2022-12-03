@@ -6,8 +6,6 @@ ${Uniforms}
 uniform vec4 color1;
 uniform vec4 color2;
 float light_border = 0.4;
-int OCTAVES = 10;
-bool should_dither = true;
 
 ${Common}
 

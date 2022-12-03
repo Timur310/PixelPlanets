@@ -30,9 +30,9 @@ const fragmentShaderPlanet = () => {
         uniform vec4 color3;
         float size = 10.0;
         int OCTAVES = 20;
+        bool should_dither = true;
         uniform float seed;
         uniform float time;
-        bool should_dither = true;
 
         float rand(vec2 coord) {
             coord = mod(coord, vec2(1.0,1.0)*floor(size+0.5));
