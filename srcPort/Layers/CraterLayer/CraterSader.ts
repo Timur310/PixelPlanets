@@ -1,7 +1,7 @@
 import Uniforms from "../../Common/Shaders/Uniforms"
 import Common from "../../Common/Shaders/Common"
 
-export default `
+export default /* glsl */`
 ${Uniforms}
 uniform vec4 color1;
 uniform vec4 color2;

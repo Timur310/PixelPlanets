@@ -1,4 +1,4 @@
-export default `
+export default /* glsl */`
 varying vec3 vUv;
 uniform float seed;
 uniform float time;
