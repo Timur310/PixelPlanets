@@ -1,4 +1,4 @@
-import { Vector4 } from "three";
+import { ShaderMaterial, Vector4 } from "three";
 import { BaseLayer } from "../BaseLayer";
 import CraterShader from "./CraterSader"
 
@@ -16,5 +16,19 @@ export class CraterLayer extends BaseLayer
             color2: { value: this._color2 },
         }
         this.setShaderMaterial(uniforms,CraterShader);
+    }
+
+    public update(delta: number): void 
+    {
+        super.update(delta);
+        const mat = this.material as ShaderMaterial;
+        mat.uniforms.color.value = this._color;
+        mat.uniforms.color2.value = this._color2;
+
+    }
+
+    public disposeLayer(): void
+    {
+        super.disposeLayer();
     }
 }
