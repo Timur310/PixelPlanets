@@ -7,7 +7,6 @@ import { LandLayer } from "./srcPort/Layers/LandLayer/LandLayer";
 const init = () => {
 	const scene = new THREE.Scene();
 	const clock = new Clock()
-	let x, y: number;
 	const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 	camera.position.z = 2;
 
@@ -15,24 +14,17 @@ const init = () => {
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	document.body.appendChild(renderer.domElement);
 	const layer = new LandLayer()
-	layer.position.z = 0.01
+	layer.position.z = 0.1
 	const layer2 = new GroundLayer()
-	scene.add(layer2)
 	scene.add(layer)
-	document.body.addEventListener('mousemove', (e) => {
-		const rect = e.target.getBoundingClientRect();
-		x = (e.clientX - rect.left) / 1000;
-		y = (e.clientY - rect.top) / 1000 - 1;
-	})
+	// scene.add(layer2)
 
 	function animate() {
 		const delta = clock.getElapsedTime()
-		requestAnimationFrame(animate);
 		layer.update(delta)
-		layer.lightOrigin = new Vector2(x, -y)
-		layer2.update(delta)
-		layer2.lightOrigin = new Vector2(x, -y)
+		// layer2.update(delta)
 		renderer.render(scene, camera);
+		requestAnimationFrame(animate);
 
 	}
 	animate();

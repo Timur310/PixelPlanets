@@ -22,13 +22,8 @@ export class CraterLayer extends BaseLayer
     {
         super.update(delta);
         const mat = this.material as ShaderMaterial;
-        mat.uniforms.color.value = this._color;
+        mat.uniforms.color1.value = this._color;
         mat.uniforms.color2.value = this._color2;
 
-    }
-
-    public disposeLayer(): void
-    {
-        super.disposeLayer();
     }
 }
