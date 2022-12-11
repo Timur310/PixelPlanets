@@ -1,10 +1,9 @@
 import Uniforms from "../../Common/Shaders/Uniforms"
 import Common from "../../Common/Shaders/Common"
 
-export default /* glsl */`
-${Uniforms}
-float light_border_1 = 0.4;
-float light_border_2 = 0.6;
+export default
+/* glsl */
+`${Uniforms}
 uniform vec4 col1;
 uniform vec4 col2;
 uniform vec4 col3;
@@ -67,6 +66,5 @@ void main() {
     if (fbm2 + d_light < fbm1) {
         col = col1;
     }
-    
     gl_FragColor = vec4(col.rgb, step(land_cutoff, fbm1) * a * col.a);
-}`;
+}`

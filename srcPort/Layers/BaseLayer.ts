@@ -1,82 +1,73 @@
 import { BufferGeometry, Mesh, PlaneGeometry, ShaderMaterial, UniformsUtils, Vector2 } from "three";
-import { randomFloat } from "../Common/Utils";
 import vertexShader from "../Common/Shaders/Vert"
 
-export class BaseLayer extends Mesh
-{
+export class BaseLayer extends Mesh {
     private _pixelResolution = 100;
     private _light_origin = new Vector2(0.39, 0.7);
     private _time_speed = 0.1;
     private _rotation = 0.0;
     private _lightIntensity = 0.1;
-    private _seed = randomFloat();
+    private _seed = Math.random();
     private _time = 0.0;
     private _size = Math.random() * 5;
     private _dither_size = 2.0;
     private _octave = 10.0;
     private _shouldDither = true;
-    
-    constructor(geometry: BufferGeometry = new PlaneGeometry(1,1), material: ShaderMaterial = new ShaderMaterial())
-    {
-        super(geometry,material);
+    private _light_border_1 = 0.4;
+    private _light_border_2 = 0.6;
+
+    constructor(geometry: BufferGeometry = new PlaneGeometry(1, 1), material: ShaderMaterial = new ShaderMaterial()) {
+        super(geometry, material);
     }
 
-    public setShaderMaterial(uniforms: any, fragmentShader: string): void
-    {
-        if(Array.isArray(this.material))
-        {
-            for (let i = 0; i < this.material.length; i++) 
-            {
+    public setShaderMaterial(uniforms: any, fragmentShader: string): void {
+        if (Array.isArray(this.material)) {
+            for (let i = 0; i < this.material.length; i++) {
                 this.material[i].dispose();
             }
         }
-        else
-        {
+        else {
             this.material.dispose();
         }
         const baseUniforms = {
-            "pixels": {value: this._pixelResolution},
-            "light_origin": {value: this._light_origin},
-            "time_speed": {value: this._time_speed},
-            "lightIntensity": {value: this._lightIntensity},
-            "seed": {value: this._seed},
-            "time": {value: this._time},
-            "rotation": {value: this._rotation},
-            "size": {value: this._size},
-            "dither_size": {value: this._dither_size},
-            "should_dither": {value: this._shouldDither},
-            "OCTAVE": {value: this._octave}
+            pixels: { value: this._pixelResolution },
+            light_origin: { value: this._light_origin },
+            time_speed: { value: this._time_speed },
+            lightIntensity: { value: this._lightIntensity },
+            seed: { value: this._seed },
+            time: { value: this._time },
+            rotation: { value: this._rotation },
+            size: { value: this._size },
+            dither_size: { value: this._dither_size },
+            should_dither: { value: this._shouldDither },
+            OCTAVE: { value: this._octave },
+            light_border_1: { value: this._light_border_1 },
+            light_border_2: { value: this._light_border_2 }
         }
         const finalUniforms = UniformsUtils.merge([baseUniforms, uniforms]);
         this.material = new ShaderMaterial({
-            uniforms:finalUniforms,
+            uniforms: finalUniforms,
             transparent: true,
+            depthTest: true,
             vertexShader: vertexShader,
             fragmentShader: fragmentShader
         })
     }
 
-    public disposeLayer(): void
-    {
+    public disposeLayer(): void {
         this.geometry.dispose();
-        if(Array.isArray(this.material))
-        {
-            for (let i = 0; i < this.material.length; i++) 
-            {
+        if (Array.isArray(this.material)) {
+            for (let i = 0; i < this.material.length; i++) {
                 this.material[i].dispose();
             }
         }
-        else
-        {
+        else {
             this.material.dispose();
         }
     }
 
-    public update(delta: number): void
-    {
-        // currently only single shader material is supported
-        if(!Array.isArray(this.material))
-        {
+    public update(delta: number): void {
+        if (!Array.isArray(this.material)) {
             const mat = this.material as ShaderMaterial;
             mat.uniforms.time.value = delta;
             mat.uniforms.rotation.value = this._rotation;
@@ -89,32 +80,26 @@ export class BaseLayer extends Mesh
         }
     }
 
-    public get lightIntensity(): number
-    {
+    public get lightIntensity(): number {
         return this._lightIntensity;
     }
 
-    public set lightIntensity(value: number)
-    {
+    public set lightIntensity(value: number) {
         this._lightIntensity = value;
     }
 
-    public get rotationVertical(): number 
-    {
+    public get rotationVertical(): number {
         return this._rotation;
     }
-    public set rotationVertical(value: number) 
-    {
+    public set rotationVertical(value: number) {
         this._rotation = value;
     }
 
-    public get timeSpeed(): number 
-    {
+    public get timeSpeed(): number {
         return this._time_speed;
     }
 
-    public set timeSpeed(value: number) 
-    {
+    public set timeSpeed(value: number) {
         this._time_speed = value;
     }
 
@@ -160,7 +145,24 @@ export class BaseLayer extends Mesh
     public get octave(): number {
         return this._octave;
     }
+
     public set octave(value: number) {
         this._octave = value;
+    }
+
+    public get light_border1(): number {
+        return this._light_border_1;
+    }
+
+    public set light_border1(value: number) {
+        this._light_border_1 = value;
+    }
+
+    public get light_border2(): number {
+        return this._light_border_2;
+    }
+
+    public set light_border2(value: number) {
+        this._light_border_2 = value;
     }
 }

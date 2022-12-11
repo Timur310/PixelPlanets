@@ -26,7 +26,6 @@ export class LandLayer extends BaseLayer
 
     public update(delta: number): void 
     {
-        // TODO: not working
         super.update(delta);
         const mat = this.material as ShaderMaterial;
         mat.uniforms.col1.value = this._color;
@@ -41,6 +40,7 @@ export class LandLayer extends BaseLayer
     {
         return this._color;
     }
+
     public set color(value: Vector4) 
     {
         this._color = value;
@@ -50,6 +50,7 @@ export class LandLayer extends BaseLayer
     {
         return this._color2;
     }
+
     public set color2(value: Vector4) 
     {
         this._color2 = value;
@@ -59,6 +60,7 @@ export class LandLayer extends BaseLayer
     {
         return this._color3;
     }
+
     public set color3(value: Vector4) 
     {
         this._color3 = value;
@@ -68,6 +70,7 @@ export class LandLayer extends BaseLayer
     {
         return this._color4;
     }
+
     public set color4(value: Vector4) 
     {
         this._color4 = value;
@@ -76,6 +79,7 @@ export class LandLayer extends BaseLayer
     public get landCutOff(): number {
         return this._landCutOff;
     }
+    
     public set landCutOff(value: number) {
         this._landCutOff = value;
     }

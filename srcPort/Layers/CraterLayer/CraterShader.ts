@@ -5,7 +5,6 @@ export default /* glsl */`
 ${Uniforms}
 uniform vec4 color1;
 uniform vec4 color2;
-float light_border = 0.4;
 
 ${Common}
 
@@ -38,7 +37,7 @@ void main() {
     if (c2<c1-(0.5-d_light)*2.0) {
         col = color2;
     }
-    if (d_light > light_border) {
+    if (d_light > light_border_1) {
         col = color2;
     } 
 
