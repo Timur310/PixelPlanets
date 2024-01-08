@@ -11,9 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "esbuild": "^0.19.11",
-    "three": "^0.160.0"
+    "three": "^0.160.0",
+    "tweakpane": "^4.0.3"
   },
   "devDependencies": {
+    "@tweakpane/core": "^2.0.3",
     "@types/three": "^0.160.0",
     "typescript": "^5.3.3"
   }
