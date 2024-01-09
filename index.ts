@@ -41,7 +41,6 @@ function init(): void {
     // add planets
     planetGroup.add(planet);
     scene.add(planetGroup);
-    scene.add(new AmbientLight(.5))
 
     // init tweakpane
     const pane = new Pane();
