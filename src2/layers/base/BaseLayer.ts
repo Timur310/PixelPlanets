@@ -23,9 +23,9 @@ export class BaseLayer extends Layer {
     private extendMaterial(): void {
         this.material.fragmentShader = FragmentShader;
         this.material.onBeforeCompile = shader => {
-            shader.uniforms.color1 = {value: this._colorPalette[0]};
-            shader.uniforms.color2 = {value: this._colorPalette[1]};
-            shader.uniforms.color3 = {value: this._colorPalette[2]};
+            shader.uniforms.color1 = { value: this._colorPalette[0] };
+            shader.uniforms.color2 = { value: this._colorPalette[1] };
+            shader.uniforms.color3 = { value: this._colorPalette[2] };
         }
     }
 }
