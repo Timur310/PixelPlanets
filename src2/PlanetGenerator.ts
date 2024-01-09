@@ -1,11 +1,11 @@
-import { Mesh, MeshBasicMaterial, PlaneGeometry } from "three";
+import { Layer } from "./layers/Layer";
 import { BaseLayer } from "./layers/base/BaseLayer";
 
 export class PlanetGenerator {
     constructor() { }
 
-    public generate(): Mesh {
+    public generate(): Layer[] {
         const baseLayer = new BaseLayer();
-        return baseLayer.mesh;
+        return [baseLayer];
     }
 }
