@@ -1,4 +1,4 @@
-import { PerspectiveCamera, Scene, WebGLRenderer } from "three";
+import { PerspectiveCamera, Scene, Vector3, WebGLRenderer } from "three";
 import { Pane } from "tweakpane";
 import { PlanetGenerator } from "./src2/PlanetGenerator";
 import { Layer } from "./src2/layers/Layer";
@@ -35,10 +35,12 @@ function init(): void {
     camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     renderer = new WebGLRenderer();
     planets = [];
+
+    // basic settings
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
-
     camera.position.z = -1;
+    camera.lookAt(new Vector3(0,0,0));
 
     // init planet generator
     const generator = new PlanetGenerator();
@@ -50,7 +52,6 @@ function init(): void {
     planet.forEach(layer => {
         layer.mesh.lookAt(camera.position);
         scene.add(layer.mesh);
-        console.log(layer.material.fragmentShader)
     })
 
 

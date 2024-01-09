@@ -28,6 +28,7 @@ export abstract class Layer {
                 seed: { value: this._seed },
                 time: { value: 0.0 }
             },
+            fragmentShader: "",
             vertexShader: vertexShader,
             transparent: true,
         });
