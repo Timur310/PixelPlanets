@@ -1,4 +1,4 @@
-import { PerspectiveCamera, Scene, Vector3, WebGLRenderer } from "three";
+import { Clock, PerspectiveCamera, Scene, Vector3, WebGLRenderer } from "three";
 import { Pane } from "tweakpane";
 import { PlanetGenerator } from "./src2/PlanetGenerator";
 import { Layer } from "./src2/layers/Layer";
@@ -7,6 +7,8 @@ let renderer: WebGLRenderer;
 let camera: PerspectiveCamera;
 let planets: Layer[][];
 let scene: Scene;
+let clock: Clock;
+let delta = 0;
 
 function onWindowResize(): void {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -16,10 +18,12 @@ function onWindowResize(): void {
 
 function loop(): void {
     requestAnimationFrame(loop);
-
+    
+    delta = clock.getElapsedTime();
+    
     planets.forEach(planet => {
         planet.forEach(layer => {
-            //update layer here
+            layer.material.uniforms.time.value = delta;
         })
     })
 
@@ -35,6 +39,7 @@ function init(): void {
     camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     renderer = new WebGLRenderer();
     planets = [];
+    clock = new Clock()
 
     // basic settings
     renderer.setSize(window.innerWidth, window.innerHeight);
